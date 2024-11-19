@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prayer Times</title>
+    <link rel="icon" href="Logo.png">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital@0;1&family=Urbanist:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+    <style>
+    body{
+        background: linear-gradient(135deg, #D2E9E9, #E3F4F4);
+        font-family: "Urbanist", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 500;
+        font-style: normal;
+        background-image: url(IMGG/686693.jpg);
+        background-size: contain;
+    }
+    .about-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: #0F1035;
+      border-radius: 15px;
+      margin: auto;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      text-align: left;
+    }
+    .toggler-icon {
+      width: 30px;
+      height: 3px;
+      background: #0F1035;
+      display: block;
+      transition: all 0.2s;
+    }
+    .middle-bar {
+      margin: 5px auto;
+    }
+  
+    .navbar-toggler .top-bar {
+      transform: rotate(45deg);
+      transform-origin: 10% 10%;
+    }
+  
+    .navbar-toggler .middle-bar {
+      opacity: 0;
+    }
+  
+    .navbar-toggler .bottom-bar {
+      transform: rotate(-45deg);
+      transform-origin: 10% 90%;
+    }
+  
+    .navbar-toggler.collapsed .top-bar,
+    .navbar-toggler.collapsed .bottom-bar {
+      transform: rotate(0);
+    }
+  
+    .navbar-toggler.collapsed .middle-bar {
+      opacity: 1;
+    }
+  
+    .navbar-toggler.collapsed .toggler-icon {
+        background: #0F1035;
+    }
+    .section {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .backbody {
+        background-color: linear-gradient(135deg, #D2E9E9, #E3F4F4);
+        color: #333;
+        direction: rtl;
+        text-align: right;
+    }
+    header {
+        backdrop-filter: blur(50px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+    footer {
+        background-color: #C4DFDF;
+    }
+    nav a.nav-link {
+        color: #0F1035;
+    }
+    .nav-link:hover {
+      transform: scale(1.07);
+      color: #d1e7dd;
+    }
+        .container {
+            width: 90%;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        .city-selection, .timer-section, .date-section {
+            margin: 20px 0;
+        }
+        .prayer-times {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .prayer-time {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+            
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(3px);
+            border-radius: 8px;
+        }
+        .prayer-time span {
+            font-size: 1.2em;
+        }
+        .navbar-toggler:focus{
+            box-shadow: none !important;
+            
+        }
+        .navbar-toggler{
+            border: none !important;
+
+        }
+    #countdown{
+        color:white;
+        font-size: large;
+        backdrop-filter: blur(3px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        border-radius: 8px;
+        padding: 5px 10px;
+    }
+    #gotop{
+        backdrop-filter: blur(5px);
+        padding: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        margin:40px 0px;
+        border-radius: 10px;
+    }
+    .container{
+        margin-top: 30px;
+    }
+    #pt{
+        background-color: #E3F4F4;
+    border-radius: 10px 20px;
+    transform: scale(1);
+    }
+    </style>
+</head>
+<body>
+    <header>
+    <div class="container-fluid"></div>
+        <nav class="navbar navbar-expand-lg navbar-light navbar navbar-light ">
+        <div class="container-fluid">
+          <a class="logo" href="welcom.php"><img style="width: 50px; height: auto;" src="Logo.png" alt="Homepage"></a>
+          <button class="navbar-toggler  collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="toggler-icon top-bar"></span>
+            <span class="toggler-icon middle-bar"></span>
+            <span class="toggler-icon bottom-bar"></span>
+          </button>
+          <div class="collapse navbar-collapse -flex justify-content-center" id="navbarNav">
+                <ul class="navbar-nav nav-underline">
+                    <li class="nav-item d-flex justify-content-center"><a style="color:black;" class="nav-link" aria-current="page" href="index.php">Home Page</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="quran.php" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: black;">Quran</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="quran.php#audio">Audio Recording</a></li>
+                            <li><a class="dropdown-item" href="quran.php#juze">Quran Juzes</a></li>
+                            <li><a class="dropdown-item" href="quran.php#sura">Quran Surahs</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item d-flex justify-content-center "><a style="color: black;" class="nav-link" href="quranaudio.php">Quran audio</a></li>
+                    <li class="nav-item d-flex justify-content-center "><a style="color: black;" class="nav-link" href="bookpage.php">Library</a></li>
+                    <li class="nav-item d-flex justify-content-center "><a style="color: black;" class="nav-link" href="Prayer.html" id="pt">Prayer times</a></li>
+                    <li class="nav-item d-flex justify-content-center "><a style="color:black;" class="nav-link" href="islam.php">Islam</a></li>
+                </ul>
+          </div>
+          <li class="nav-item d-flex justify-content-left"><a style="color: black;" class="nav-link" href="profil.php"><img style="width: 20px; height: auto;" src="IMGG/profil.png" alt="profil"></a></li>
+          <li class="nav-item d-flex justify-content-left "><a style="color: black;" class="nav-link" href="distroy.php">Log out</a></li>
+        </div>
+        </header>  
+      <div class="main-wrapper about-container">
+        <div class="container right col-xs-1" id="pray">
+                    <h1 class=" d-flex justify-content-center">Prayer Times</h1>
+                        <label for="city" class=" d-flex justify-content-center">Select City:</label>
+                        <select id="city" class="form-select form-select-lg mb-3 btn btn-outline-secondary">
+                            <option value="Marrakech">Marrakech</option>
+                            <option value="Casablanca">Casablanca</option>
+                            <option value="Rabat">Rabat</option>
+                            <option value="Salé">Salé</option>
+                            <option value="Fès">Fès</option>
+                            <option value="Tanger">Tanger</option>
+                            <option value="Agadir">Agadir</option>
+                            <option value="Meknès">Meknès</option>
+                            <option value="Oujda">Oujda</option>
+                            <option value="Tetouan">Tetouan</option>
+                            <option value="Al Hoceima">Al Hoceima</option>
+                            <option value="Ouarzazate">Ouarzazate</option>
+                            <!-- Add more cities as needed -->
+                        </select>               
+                <div class="timer-section">
+                    <div class="remaining-time">
+                        <p class=" d-flex justify-content-center">Next Prayer in</p>
+                        <p class=" d-flex justify-content-center" id="next-prayer-name">Prayer Name</p>
+                        <p  class=" d-flex justify-content-center" id="countdown">--:--:--</p>
+                    </div>
+                </div>
+                <div class="prayer-times">
+                    <div class="prayer-time" id="fajr">
+                        <span>Fajr</span>
+                        <span id="fajr-time">--:--</span>
+                    </div>
+                    <div class="prayer-time" id="dhuhr">
+                        <span>Dhuhr</span>
+                        <span id="dhuhr-time">--:--</span>
+                    </div>
+                    <div class="prayer-time" id="asr">
+                        <span>Asr</span>
+                        <span id="asr-time">--:--</span>
+                    </div>
+                    <div class="prayer-time" id="maghrib">
+                        <span>Maghrib</span>
+                        <span id="maghrib-time">--:--</span>
+                    </div>
+                    <div class="prayer-time" id="isha">
+                        <span>Isha</span>
+                        <span id="isha-time">--:--</span>
+                    </div>
+                </div>
+            </div>
+        
+            <script>
+                document.addEventListener("DOMContentLoaded", () => {
+                    const citySelect = document.getElementById("city");
+                    const countdownElement = document.getElementById("countdown");
+                    const nextPrayerNameElement = document.getElementById("next-prayer-name");
+                    let countdownInterval;
+        
+                    async function fetchPrayerTimes(city) {
+                        const response = await fetch(`https://api.aladhan.com/v1/timingsByCity?city=${city}&country=Morocco&method=4`);
+                        const data = await response.json();
+                        return data.data.timings;
+                    }
+        
+                    function updatePrayerTimes(prayerTimes) {
+                        document.getElementById("fajr-time").textContent = prayerTimes.Fajr;
+                        document.getElementById("dhuhr-time").textContent = prayerTimes.Dhuhr;
+                        document.getElementById("asr-time").textContent = prayerTimes.Asr;
+                        document.getElementById("maghrib-time").textContent = prayerTimes.Maghrib;
+                        document.getElementById("isha-time").textContent = prayerTimes.Isha;
+                    }
+        
+                    function calculateNextPrayer(prayerTimes) {
+                        const now = new Date();
+                        const prayerOrder = ["Fajr", "Dhuhr", "Asr", "Maghrib", "Isha"];
+                        
+                        for (let i = 0; i < prayerOrder.length; i++) {
+                            const prayerName = prayerOrder[i];
+                            const [hour, minute] = prayerTimes[prayerName].split(':').map(Number);
+                            const prayerTime = new Date();
+                            prayerTime.setHours(hour, minute, 0, 0);
+        
+                            if (now < prayerTime) {
+                                return { time: prayerTime, name: prayerName };
+                            }
+                        }
+        
+                        // If all prayer times for today have passed, set next prayer to Fajr of next day
+                        const [fajrHour, fajrMinute] = prayerTimes.Fajr.split(':').map(Number);
+                        const nextDayFajr = new Date();
+                        nextDayFajr.setDate(now.getDate() + 1);
+                        nextDayFajr.setHours(fajrHour, fajrMinute, 0, 0);
+        
+                        return { time: nextDayFajr, name: "Fajr" };
+                    }
+        
+                    function startCountdown(prayerTimes) {
+                        if (countdownInterval) clearInterval(countdownInterval);
+        
+                        const nextPrayer = calculateNextPrayer(prayerTimes);
+                        nextPrayerNameElement.textContent = nextPrayer.name;
+        
+                        function updateCountdown() {
+                            const now = new Date();
+                            const timeDiff = nextPrayer.time - now;
+        
+                            if (timeDiff <= 0) {
+                                clearInterval(countdownInterval);
+                                countdownElement.textContent = "00:00:00";
+                                updatePrayerData(); // Update prayer data for the next prayer
+                            } else {
+                                const hours = String(Math.floor(timeDiff / (1000 * 60 * 60))).padStart(2, '0');
+                                const minutes = String(Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60))).padStart(2, '0');
+                                const seconds = String(Math.floor((timeDiff % (1000 * 60)) / 1000)).padStart(2, '0');
+                                countdownElement.textContent = `${hours}:${minutes}:${seconds}`;
+                            }
+                        }
+        
+                        updateCountdown(); // Initial call to set the countdown immediately
+                        countdownInterval = setInterval(updateCountdown, 1000);
+                    }
+        
+                    async function updatePrayerData() {
+                        const city = citySelect.value;
+                        const prayerTimes = await fetchPrayerTimes(city);
+                        updatePrayerTimes(prayerTimes);
+                        startCountdown(prayerTimes);
+                    }
+        
+                    citySelect.addEventListener("change", updatePrayerData);
+                    updatePrayerData(); // Initial load
+                });
+            </script>
+            <hr class="featurette-divider" id="tasbih">
+            <div id="gotop" class="d-flex gap-2">
+                <a style="color: aliceblue;" class="nav-link" href="tasbih.php"><img style="width: 50px; height: auto;" src="IMGG/tasbih.png" alt="tasbih">
+                <a href="adkarAr.html"><button class=" btn btn-outline-secondary" type="button">Adkar</button></a><br>
+            </div>
+        </div>
+    </div>    
+<script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+<footer>
+    <div class="container-fluid w-100">
+        <div class="d-flex justify-content-center">
+            <ul class="navbar-nav">
+                <hr class="featurette-divider">
+                <ul class="navbar-nav nav-underline">
+                    <li class="nav-item d-flex justify-content-center"><a style="color:black;" class="nav-link" aria-current="page" href="index.php">Home Page</a></li>
+                    <li class="nav-item d-flex justify-content-center "><a style="color: black;" class="nav-link" href="quran.php">Quran</a></li>
+                    <li class="nav-item d-flex justify-content-center "><a style="color: black;" class="nav-link" href="quranaudio.php">Quran audio</a></li>
+                    <li class="nav-item d-flex justify-content-center "><a style="color: black;" class="nav-link" href="bookpage.php">Library</a></li>
+                </ul>
+                <hr style="color:aliceblue;" class="featurette-divider">
+                <p style="color:aliceblue;"> <a style="color:black;" class="nav-link" class="nav-link"  href="https://github.com/bochamaakram">&copy; 2024 All rights reserved</a></p>
+            </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
